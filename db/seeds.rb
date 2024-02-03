@@ -1,9 +1,7 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+names = ['Mr. Teacher', 'Antonio Banderas', 'Cynthia Erivo', 'Scarlett Johansson', 'Jonathan Pryce', 'Florence Pugh',
+         'Yalitza Aparicio', 'Olivia Colman', 'Marina de Tavira', 'Adam Driver', 'Sam Elliott', 'Lady Gaga', 'Richard E. Grant', 'Regina King', 'Rami Malek', 'Mary J. Blige', 'Timothee Chalamet', 'Allison Janney', 'Daniel Kaluuya', 'Lesley Manville', 'Laurie Metcalf', 'Margot Robbie', 'Sam Rockwell', 'Mahershala Ali', 'Andrew Garfield', 'Naomie Harris', 'Lucas Hedges', 'Isabelle Huppert', 'Ruth Negga', 'Dev Patel', 'Bryan Cranston', 'Tom Hardy', 'Brie Larson', 'Jennifer Jason Leigh', 'Rachel McAdams', 'Charlotte Rampling', 'Mark Rylance', 'Alicia Vikander', 'Patricia Arquette', 'Steve Carell', 'Benedict Cumberbatch', 'Felicity Jones', 'Michael Keaton', 'Rosamund Pike', 'Eddie Redmayne', 'J. K. Simmons', 'Emma Stone', 'Barkhad Abdi', 'Chiwetel Ejiofor', 'Michael Fassbender', 'Sally Hawkins', 'Jared Leto', 'Matthew McConaughey', 'Lupita Nyong\' o', 'June Squibb', 'Bradley Cooper', 'Hugh Jackman', 'Emmanuelle Riva', 'Quvenzhane Wallis', 'Berenice Bejo', 'Demian Bichir', 'Jessica Chastain', 'Jean Dujardin', 'Jonah Hill', 'Rooney Mara', 'Melissa McCarthy', 'Gary Oldman', 'Octavia Spencer', 'Christian Bale', 'Jesse Eisenberg', 'James Franco', 'John Hawkes', 'Jennifer Lawrence', 'Mark Ruffalo', 'Hailee Steinfeld', 'Jacki Weaver', 'Sandra Bullock', 'Vera Farmiga', 'Colin Firth', 'Maggie Gyllenhaal', 'Anna Kendrick', 'Mo\' Nique', 'Carey Mulligan', 'Christopher Plummer', 'Jeremy Renner', 'Gabourey Sidibe', 'Stanley Tucci', 'Christoph Waltz', 'Josh Brolin', 'Viola Davis', 'Anne Hathaway', 'Taraji P. Henson', 'Richard Jenkins', 'Frank Langella', 'Melissa Leo', 'Mickey Rourke', 'Michael Shannon', 'Casey Affleck', 'Marion Cotillard', 'Ruby Dee', 'Hal Holbrook', 'Viggo Mortensen', 'Ellen Page', 'Saoirse Ronan', 'Tilda Swinton']
+
+names.each_with_index do |name, i|
+  uid = format 'user%03d', i
+  User.create(username: uid, fullname: name, password: '123456', role: (i == 0 ? 'teacher' : 'student'))
+end
